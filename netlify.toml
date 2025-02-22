@@ -1,12 +1,27 @@
 [build]
-  publish = "."
+publish = "."
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/sitemap.xml"
+to = "/sitemap.xml"
+status = 200
+
+[[redirects]]
+from = "/test-file.txt"
+to = "/test-file.txt"
+status = 200
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
 
 [[headers]]
-  for = "/*"
-    [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+for = "/sitemap.xml"
+[headers.values]
+  Content-Type = "application/xml"
+
+[[headers]]
+for = "/test-file.txt"
+[headers.values]
+  Content-Type = "text/plain"
