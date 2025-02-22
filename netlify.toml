@@ -1,27 +1,29 @@
 [build]
-publish = "."
+  publish = "."
+  command = ""  # Keeping empty if there’s no build process
 
 [[redirects]]
-from = "/sitemap.xml"
-to = "/sitemap.xml"
-status = 200
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
 
 [[redirects]]
-from = "/test-file.txt"
-to = "/test-file.txt"
-status = 200
+  from = "/test-file.txt"
+  to = "/test-file.txt"
+  status = 200
 
 [[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+  from = "/*"
+  to = "https://rongarland.comeyre.com"
+  status = 301
+  force = true  # Ensures all requests are redirected, even if Netlify thinks they should be served locally
 
 [[headers]]
-for = "/sitemap.xml"
-[headers.values]
+  for = "/sitemap.xml"
+  [headers.values]
   Content-Type = "application/xml"
 
 [[headers]]
-for = "/test-file.txt"
-[headers.values]
+  for = "/test-file.txt"
+  [headers.values]
   Content-Type = "text/plain"
